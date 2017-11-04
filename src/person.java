@@ -1,3 +1,4 @@
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -8,19 +9,31 @@ public class person {
 	private int height;
 	private int x; //top of body (neck)
 	private int y; //top of body (neck)
+	private Color boardcolor;
 	
 	//methods
 	
 	//constructor
-	public person (Color ec, Color hr, int h, int xin, int yin) {
+	public person (Color ec, Color hr, int h, int xin, int yin, Color bc) {
 		eyecolor = ec;
 		haircolor = hr;
 		height = h;
 		x = xin;
 		y = yin;
+		boardcolor = bc;
 	}
 
 	public void show(Graphics g) {
+		//skate board
+		g.setColor(boardcolor);
+		g.drawLine(x - 60, y + height, x + 60, y + height);
+		g.drawLine(x - 60, y + height, x - 80, y + height - 15);
+		g.drawLine(x + 60, y + height, x + 80, y + height - 15);
+		//wheels
+		Color GREY = new Color (169, 172, 178);
+		g.setColor(GREY);
+		g.fillOval(x - 55, y + height, 15, 15);
+		g.fillOval(x + 40, y + height, 15, 15);
 		//body
 		g.setColor(Color.BLACK);
 		g.drawLine(x, y, x, y + height - 50);
@@ -28,7 +41,7 @@ public class person {
 		g.drawLine(x, y + height - 50, x - 30, y + height);
 		g.drawLine(x, y + height - 50, x + 30, y + height);
 		//arms
-		g.drawLine(x, y + ((height - 50)/2), x - 15, y + ((height - 50)/2));
+		g.drawLine(x, y + ((height - 50)/2), x - 15 , y + ((height - 50)/2));
 		g.drawLine(x, y + ((height - 50)/2), x + 15, y + ((height - 50)/2));
 		
 		//hair
