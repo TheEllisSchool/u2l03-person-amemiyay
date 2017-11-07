@@ -13,7 +13,17 @@ public class Game extends DrawableAdapter {
 	
 	public static void main(String[] args) {
 		showGameBoard(gb);
-
+		System.out.println(mrsLombardi);
+		
+		//System.out.println(mrsLombardi.getX());
+		//mrsLombardi.setX(1000);
+		//System.out.println(mrsLombardi.getX());
+		
+		for (int i = 0; i < 70; i++) {
+			mrsLombardi.walk();
+			leah.walk();
+		}
+		
 	}
 	
 	public void draw(Graphics g) {

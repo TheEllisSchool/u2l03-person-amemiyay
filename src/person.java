@@ -22,6 +22,26 @@ public class person {
 		y = yin;
 		boardcolor = bc;
 	}
+	
+	//set x
+	public void setX (int inx) {
+		if (inx > 0 && inx < 500) {
+			x = inx;
+		} else {
+			System.out.println("X out of bounds. X set to 10.");
+			x = 10;
+		}	
+	}
+	//get x
+	public int getX() {
+		return x;
+	}
+	
+	public void walk() {
+		int tempX = x;
+		tempX += 10;
+		setX(tempX);
+	}
 
 	public void show(Graphics g) {
 		//skate board
@@ -62,4 +82,11 @@ public class person {
 
 		
 	}
+	//toString Override Method
+	public String toString() {
+		String sentence = "Eye Color: " + eyecolor + "\nHair Color: " + haircolor + "\nHeight: " 
+				+ height + "\nBoard Color: " + boardcolor + "\nLocation: (" + x + ", " + y + ")";
+		return sentence;
+	}
+	
 }
